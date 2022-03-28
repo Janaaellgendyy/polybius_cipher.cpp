@@ -4,6 +4,7 @@ using namespace std;
 #include <cstring>
 #include <cctype>
 
+
 char arr1[5];
 char arr2[6][6] = {
         {'0', '0', '0', '0', '0', '0'},
