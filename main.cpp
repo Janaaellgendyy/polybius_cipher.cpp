@@ -14,10 +14,25 @@ char arr2[6][6] = {
         {'0', 'Q', 'R', 'S', 'T', 'U'},
         {'0', 'V', 'W', 'X', 'Y', 'Z'},
 };
+void pattern() {
 
+    cout << "please enter your pattern of numbers:\n";
+    for (int i = 0; i < 5; i++) {
+        cin >> arr1[i];
+    }
+
+    for (int i = 1; i <= 5; i++) {
+        arr2[0][i] = arr1[i - 1];
+    }
+
+    for (int j = 1; j <= 5; j++) {
+        arr2[j][0] = arr1[j - 1];
+    }
+
+}
 void encryption() {
     string text = "";
-
+    pattern();
     cout << "Enter text to be encrypted:";
     cin.ignore();
     getline(cin, text);
@@ -43,6 +58,7 @@ void encryption() {
 void decryption() {
     string decrypt;
     int column, row;
+    pattern();
 
     cout << "Enter text to be decrypted:";
     cin.ignore();
@@ -70,6 +86,9 @@ void decryption() {
 
 }
 
+
+
+
 int main() {
 
     int choice;
@@ -80,36 +99,15 @@ int main() {
          << "Choice:";
     cin >> choice;
 
-    cout << "please enter your pattern of numbers:\n";
-    for (int i = 0; i < 5; i++) {
-        cin >> arr1[i];
-    }
 
-    for (int i = 1; i <= 5; i++) {
-        arr2[0][i] = arr1[i - 1];
-    }
-
-    for (int j = 1; j <= 5; j++) {
-        arr2[j][0] = arr1[j - 1];
-    }
-
-//    // Remove
-//    for (int i = 0; i < 6; i++) {
-//        for (int j = 0; j < 6; j++) {
-//            cout << arr2[i][j] << " ";
-//        }
-//        cout << endl;
-//    }
 
     // Encryption
-    if (choice == 1) {
+    if (choice == 1){
         encryption();
-    } else if (choice == 2) {
-        decryption();
-    } else if (choice == 3) {
-        exit(0);
-    } else {
-        cout << "You Entered Wrong Choice";
     }
 
-}
+    else if (choice == 2){
+        decryption();
+    }
+    else{exit;}
+    }
